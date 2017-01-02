@@ -2,10 +2,10 @@ ext:
 	python-dbg setup.py build_ext --inplace
 
 test:
-	python main.py
+	python-dbg main.py
 
 debug:
-		cygdb . -- --args python main.py
+		cygdb . -- --args python-dbg main.py
 
 clean:
 	rm -rf build/ *.so *.c cython_debug/

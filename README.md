@@ -11,7 +11,9 @@ Set-up environment, for example using `vagrant`
     $ vagrant up
     $ vagrant ssh
 
-    $ sudo apt-get install build-essential python-dbg git gdb python-setuptools python-pip python-dev
+    $ sudo apt-get install build-essential python-dbg git gdb \
+                           python-setuptools python-pip python-dev
+
     $ sudo /usr/bin/python-dbg /usr/bin/pip install cython
 
 
@@ -19,6 +21,15 @@ Set-up environment, for example using `vagrant`
 
     $ python-dbg --version
     Python 2.7.9
+
+
+		$ python --version
+		Python 2.7.9
+
+
+		$ python3
+		-bash: python3: command not found
+
 
 
     $ cython --version
@@ -75,7 +86,7 @@ Build:
 
 Run debugger:
 
-    $ cygdb . -- --args python main.py
+    $ cygdb . -- --args python-dbg main.py
 
 Set up a breakpoint, and run:
 
