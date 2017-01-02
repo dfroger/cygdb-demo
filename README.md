@@ -20,6 +20,12 @@ Set-up environment, for example using `vagrant`
 		$ python-dbg --version
 		Python 2.7.9
 
+
+		$ cython --version
+		Cython version 0.25.2
+		[89796 refs]
+
+
     $ gdb --version
 		GNU gdb (Debian 7.7.1+dfsg-5) 7.7.1
 		Copyright (C) 2014 Free Software Foundation, Inc.
@@ -60,7 +66,7 @@ Set-up environment, for example using `vagrant`
 
 Get the source code:
 
-    $ git clone https://github.com/cygdb-demo
+    $ git clone https://github.com/dfroger/cygdb-demo
     $ cd cygdb-demo
 
 Build:
