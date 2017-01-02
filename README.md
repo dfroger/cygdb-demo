@@ -31,7 +31,6 @@ Set-up environment, for example using `vagrant`
 		-bash: python3: command not found
 
 
-
     $ cython --version
     Cython version 0.25.2
     [89796 refs]
@@ -113,3 +112,14 @@ Set up a breakpoint, and run:
 
     (gdb) cy next
     815      assert(__pyx_arg_x); {
+
+    (gdb) cy bt
+    #8  0x000000000051f00b in <module>() at main.py:4
+             4    y = demo.foo(x)
+
+    (gdb) cy globals
+    Not a function cygdb knows about. Use the normal GDB commands instead.
+
+    (gdb) cy locals
+    Not a function cygdb knows about. Use the normal GDB commands instead.
+    s
