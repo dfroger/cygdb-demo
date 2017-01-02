@@ -23,12 +23,12 @@ Set-up environment, for example using `vagrant`
     Python 2.7.9
 
 
-		$ python --version
-		Python 2.7.9
+    $ python --version
+    Python 2.7.9
 
 
-		$ python3
-		-bash: python3: command not found
+    $ python3
+    -bash: python3: command not found
 
 
     $ cython --version
@@ -122,4 +122,3 @@ Set up a breakpoint, and run:
 
     (gdb) cy locals
     Not a function cygdb knows about. Use the normal GDB commands instead.
-    s
