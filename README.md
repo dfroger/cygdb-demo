@@ -87,7 +87,16 @@ Build:
 python-dbg setup.py build_ext --inplace
 ```
 
-## demo.c
+## demo.c and debug infos
+
+`demo.pyx` compiles to `demo.c` and `cython_debug/cython_debug_info_demo`
+
+For readiblity, `cython_debug_info_demo` has been formatted bellow with:
+
+``` bash
+sudo apt-get install libxml2-utils
+xmllint --format --recover cython_debug_info_demo > out.xml
+```
 
 ### cdef
 
@@ -102,6 +111,20 @@ compiles to:
 static double __pyx_f_4demo_foo(double __pyx_v_x)
 ```
 
+debug info:
+
+``` xml
+<Function cname="__pyx_f_4demo_foo" lineno="1" name="foo" pf_cname="" qualified_name="demo.foo">
+  <Locals>
+    <LocalVar cname="__pyx_v_x" lineno="1" name="x" qualified_name="demo.foo.x" type="CObject"/>
+  </Locals>
+  <Arguments>
+    <x/>
+  </Arguments>
+  <StepIntoFunctions/>
+</Function>
+```
+
 ### def
 
 ``` Cython
@@ -114,6 +137,18 @@ compiles to:
 ``` c
 static PyObject *__pyx_pw_4demo_1bar(PyObject *__pyx_self, PyObject *__pyx_arg_x)
 static PyObject *__pyx_pf_4demo_bar(CYTHON_UNUSED PyObject *__pyx_self, double __pyx_v_x)
+```
+
+debug info:
+
+``` xml
+<Function cname="__pyx_pw_4demo_1bar" lineno="4" name="bar" pf_cname="" qualified_name="demo.bar">
+  <Locals>
+    <LocalVar cname="__pyx_v_x" lineno="4" name="x" qualified_name="demo.bar.x" type="CObject"/>
+  </Locals>
+  <Arguments/>
+  <StepIntoFunctions/>
+</Function>
 ```
 
 ### cpdef
@@ -131,34 +166,9 @@ static PyObject *__pyx_pf_4demo_2baz(CYTHON_UNUSED PyObject *__pyx_self, double 
 static double __pyx_f_4demo_baz(double, int __pyx_skip_dispatch)
 ```
 
-## cython_debug/cython_debug_info_demoo
-
-note: formatted with:
-
-``` bash
-sudo apt-get install libxml2-utils
-xmllint --format --recover cython_debug_info_demo > out.xml
-```
+debug info:
 
 ``` xml
-<Function cname="__pyx_f_4demo_foo" lineno="1" name="foo" pf_cname="" qualified_name="demo.foo">
-  <Locals>
-    <LocalVar cname="__pyx_v_x" lineno="1" name="x" qualified_name="demo.foo.x" type="CObject"/>
-  </Locals>
-  <Arguments>
-    <x/>
-  </Arguments>
-  <StepIntoFunctions/>
-</Function>
-
-<Function cname="__pyx_pw_4demo_1bar" lineno="4" name="bar" pf_cname="" qualified_name="demo.bar">
-  <Locals>
-    <LocalVar cname="__pyx_v_x" lineno="4" name="x" qualified_name="demo.bar.x" type="CObject"/>
-  </Locals>
-  <Arguments/>
-  <StepIntoFunctions/>
-</Function>
-
 <Function cname="__pyx_f_4demo_baz" lineno="7" name="baz" pf_cname="__pyx_pw_4demo_3baz" qualified_name="demo.baz">
   <Locals>
     <LocalVar cname="__pyx_v_x" lineno="7" name="x" qualified_name="demo.baz.x" type="CObject"/>
@@ -169,6 +179,7 @@ xmllint --format --recover cython_debug_info_demo > out.xml
   <StepIntoFunctions/>
 </Function>
 ```
+
 
 ## Demo of using cygdb
 
