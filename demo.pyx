@@ -1,5 +1,8 @@
-cpdef foo(double x):
-    return bar(x) + 1
+cdef double foo(double x):
+    return 2*x
 
-cdef bar(double x):
+def bar(double x):
+    return 2*x
+
+cpdef double baz(double x):
     return 2*x
